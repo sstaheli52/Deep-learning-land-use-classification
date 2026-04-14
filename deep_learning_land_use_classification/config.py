@@ -28,6 +28,8 @@ FIGURES_DIR = REPORTS_DIR / "figures"
 IMAGES_DIR = RAW_DATA_DIR / "Images"
 LABELS_FILE = RAW_DATA_DIR / "LandUse_Multilabeled.txt"
 
+WANDB_DIR = PROJ_ROOT / "wandb"
+
 # Download and extract the dataset if not already present
 if not IMAGES_DIR.exists() or not LABELS_FILE.exists():   
     with tempfile.TemporaryDirectory() as tmp:

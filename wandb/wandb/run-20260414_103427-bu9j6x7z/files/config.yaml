@@ -1,0 +1,45 @@
+_wandb:
+    value:
+        cli_version: 0.26.0
+        e:
+            57xh0bgjad5b7vkg2sh3nz1jejox0rn3:
+                codePath: /Users/user/Dropbox/My_Mac/Documents/Wageningen/Coursework/Period_5/Deep_learning/DL_landuse_classification_project/Deep-learning-land-use-classification/notebooks/0.02_wandb.ipynb
+                codePathLocal: 0.02_wandb.ipynb
+                email: sstaheli52@gmail.com
+                executable: /Users/user/miniforge3/envs/DL_landuse/bin/python
+                git:
+                    commit: 0ec26244655969981f432b3018d7ac57b5ed5da7
+                    remote: https://github.com/sstaheli52/Deep-learning-land-use-classification.git
+                host: macbookpro.wurdmz.nl
+                os: macOS-26.3.1-arm64-arm-64bit
+                program: /Users/user/Dropbox/My_Mac/Documents/Wageningen/Coursework/Period_5/Deep_learning/DL_landuse_classification_project/Deep-learning-land-use-classification/notebooks/0.02_wandb.ipynb
+                python: CPython 3.10.20
+                root: /Users/user/Dropbox/My_Mac/Documents/Wageningen/Coursework/Period_5/Deep_learning/DL_landuse_classification_project/Deep-learning-land-use-classification/wandb
+                startedAt: "2026-04-14T08:34:27.434588Z"
+                writerId: 57xh0bgjad5b7vkg2sh3nz1jejox0rn3
+        m: []
+        python_version: 3.10.20
+        t:
+            "1":
+                - 5
+                - 53
+            "2":
+                - 5
+                - 53
+            "3":
+                - 2
+                - 16
+            "4": 3.10.20
+            "5": 0.26.0
+            "8":
+                - 1
+            "12": 0.26.0
+            "13": darwin-arm64
+architecture:
+    value: CNN
+dataset:
+    value: CIFAR-100
+epochs:
+    value: 10
+learning_rate:
+    value: 0.02

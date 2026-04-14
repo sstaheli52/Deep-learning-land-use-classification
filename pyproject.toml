@@ -28,6 +28,8 @@ dependencies = [
     "numpy",
     "torchvision",
     "scikit-learn",
+    "wandb",
+    "nbformat"
 ]
 requires-python = "~=3.10.0"
 

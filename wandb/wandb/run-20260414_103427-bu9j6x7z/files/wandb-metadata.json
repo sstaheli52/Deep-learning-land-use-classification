@@ -1,0 +1,17 @@
+{
+  "os":  "macOS-26.3.1-arm64-arm-64bit",
+  "python":  "CPython 3.10.20",
+  "startedAt":  "2026-04-14T08:34:27.434588Z",
+  "program":  "/Users/user/Dropbox/My_Mac/Documents/Wageningen/Coursework/Period_5/Deep_learning/DL_landuse_classification_project/Deep-learning-land-use-classification/notebooks/0.02_wandb.ipynb",
+  "codePath":  "/Users/user/Dropbox/My_Mac/Documents/Wageningen/Coursework/Period_5/Deep_learning/DL_landuse_classification_project/Deep-learning-land-use-classification/notebooks/0.02_wandb.ipynb",
+  "codePathLocal":  "0.02_wandb.ipynb",
+  "git":  {
+    "remote":  "https://github.com/sstaheli52/Deep-learning-land-use-classification.git",
+    "commit":  "0ec26244655969981f432b3018d7ac57b5ed5da7"
+  },
+  "email":  "sstaheli52@gmail.com",
+  "root":  "/Users/user/Dropbox/My_Mac/Documents/Wageningen/Coursework/Period_5/Deep_learning/DL_landuse_classification_project/Deep-learning-land-use-classification/wandb",
+  "host":  "macbookpro.wurdmz.nl",
+  "executable":  "/Users/user/miniforge3/envs/DL_landuse/bin/python",
+  "writerId":  "57xh0bgjad5b7vkg2sh3nz1jejox0rn3"
+}
