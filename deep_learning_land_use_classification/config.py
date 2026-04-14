@@ -54,7 +54,7 @@ df["folder"] = parts[0]
 df["number"] = parts[1]
 
 df["path"] = (
-    str(IMAGES_DIR) + "\\" + df["folder"] + "\\" + df["folder"] + df["number"] + ".tif"
+    str(IMAGES_DIR) + "/" + df["folder"] + "/" + df["folder"] + df["number"] + ".tif"
 )
 
 # Get class columns

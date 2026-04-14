@@ -1,0 +1,81 @@
+_wandb:
+    value:
+        cli_version: 0.26.0
+        e:
+            zt47jcr2unfv9xsg6njiv1841d1vluyl:
+                apple:
+                    ecpuCores: 4
+                    gpuCores: 8
+                    macModel: MacBookPro17,1
+                    memoryGb: 16
+                    name: Apple M1
+                    pcpuCores: 4
+                    ramTotalBytes: "17179869184"
+                    swapTotalBytes: "6442450944"
+                codePath: /Users/user/Dropbox/My_Mac/Documents/Wageningen/Coursework/Period_5/Deep_learning/DL_landuse_classification_project/Deep-learning-land-use-classification/notebooks/3.00_resnet50_with_imagenet.ipynb
+                codePathLocal: 3.00_resnet50_with_imagenet.ipynb
+                cpu_count: 8
+                cpu_count_logical: 8
+                disk:
+                    /:
+                        total: "494384795648"
+                        used: "489421291520"
+                email: sstaheli52@gmail.com
+                executable: /Users/user/miniforge3/envs/DL_landuse/bin/python
+                git:
+                    commit: c533a94cd70e97d2f863c993ddb6573ced5e401d
+                    remote: https://github.com/sstaheli52/Deep-learning-land-use-classification.git
+                host: macbookpro.wurdmz.nl
+                memory:
+                    total: "17179869184"
+                os: macOS-26.3.1-arm64-arm-64bit
+                program: /Users/user/Dropbox/My_Mac/Documents/Wageningen/Coursework/Period_5/Deep_learning/DL_landuse_classification_project/Deep-learning-land-use-classification/notebooks/3.00_resnet50_with_imagenet.ipynb
+                python: CPython 3.10.20
+                root: /Users/user/Dropbox/My_Mac/Documents/Wageningen/Coursework/Period_5/Deep_learning/DL_landuse_classification_project/Deep-learning-land-use-classification/wandb
+                startedAt: "2026-04-14T09:13:05.507245Z"
+                writerId: zt47jcr2unfv9xsg6njiv1841d1vluyl
+        m: []
+        python_version: 3.10.20
+        t:
+            "1":
+                - 1
+                - 5
+                - 41
+                - 53
+            "2":
+                - 1
+                - 5
+                - 41
+                - 53
+            "3":
+                - 1
+                - 2
+                - 16
+            "4": 3.10.20
+            "5": 0.26.0
+            "8":
+                - 1
+            "12": 0.26.0
+            "13": darwin-arm64
+architecture:
+    value: resnet50
+batch_size:
+    value: 32
+epochs:
+    value: 5
+learning_rate:
+    value: 0.0001
+loss:
+    value: BCEWithLogitsLoss
+num_classes:
+    value: 17
+optimizer:
+    value: Adam
+pretrained:
+    value: true
+pretraining_dataset:
+    value: ImageNetV2
+pretraining_source:
+    value: torchvision
+weights:
+    value: IMAGENET1K_V2
