@@ -25,7 +25,9 @@ def download_data():
             shutil.rmtree(repo)
     
 def get_multi_label_data():
-    # -- Data preparation --
+    # Download data if not already present
+    download_data()
+    
     # Get the multilabels data as a DataFrame
     df = pd.read_csv(config.LABELS_FILE, sep=r"\s+", header=0)
 
@@ -53,6 +55,9 @@ def get_multi_label_data():
     return train_df, test_df, class_names, num_classes
 
 def get_single_label_data():
+    # Download data if not already present
+    download_data()
+    
     # Get class names from subdirectories
     class_names = sorted([d.name for d in config.IMAGES_DIR.iterdir() if d.is_dir()])
     num_classes = len(class_names)
