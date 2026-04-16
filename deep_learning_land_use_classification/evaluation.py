@@ -4,7 +4,7 @@ import torch
 import numpy as np
 from sklearn.metrics import confusion_matrix
 
-def compute_accuracy_metrics_singlelabel(model, loader, device):
+def compute_accuracy_metrics_singlelabel(model, loader, device, num_classes=None):
     model.eval()
     all_labels, all_preds = [], []
 
@@ -24,13 +24,51 @@ def compute_accuracy_metrics_singlelabel(model, loader, device):
     all_preds  = np.concatenate(all_preds)
     all_labels = np.concatenate(all_labels)
     
-    precision = precision_score(all_labels, all_preds, average=None, zero_division=0)
-    recall    = recall_score(all_labels, all_preds, average=None, zero_division=0)
-    f1        = f1_score(all_labels, all_preds, average=None, zero_division=0)
+    metric_labels = np.arange(num_classes) if num_classes is not None else None
 
-    precision_macro = precision_score(all_labels, all_preds, average='macro', zero_division=0)
-    recall_macro    = recall_score(all_labels, all_preds, average='macro', zero_division=0)
-    f1_macro        = f1_score(all_labels, all_preds, average='macro', zero_division=0)
+    precision = precision_score(
+        all_labels,
+        all_preds,
+        average=None,
+        labels=metric_labels,
+        zero_division=0,
+    )
+    recall = recall_score(
+        all_labels,
+        all_preds,
+        average=None,
+        labels=metric_labels,
+        zero_division=0,
+    )
+    f1 = f1_score(
+        all_labels,
+        all_preds,
+        average=None,
+        labels=metric_labels,
+        zero_division=0,
+    )
+
+    precision_macro = precision_score(
+        all_labels,
+        all_preds,
+        average='macro',
+        labels=metric_labels,
+        zero_division=0,
+    )
+    recall_macro = recall_score(
+        all_labels,
+        all_preds,
+        average='macro',
+        labels=metric_labels,
+        zero_division=0,
+    )
+    f1_macro = f1_score(
+        all_labels,
+        all_preds,
+        average='macro',
+        labels=metric_labels,
+        zero_division=0,
+    )
 
     return precision, recall, f1, precision_macro, recall_macro, f1_macro
 
@@ -66,7 +104,7 @@ def compute_accuracy_metrics_multilabel(model, loader, device, threshold=0.5):
 
     return precision, recall, f1, precision_macro, recall_macro, f1_macro
 
-def get_confusion_matrix_singlelabel(model, loader, device):
+def get_confusion_matrix_singlelabel(model, loader, device, num_classes=None):
     model.eval()
     all_labels, all_preds = [], []
 
@@ -86,4 +124,5 @@ def get_confusion_matrix_singlelabel(model, loader, device):
     all_preds  = np.concatenate(all_preds)
     all_labels = np.concatenate(all_labels)
 
-    return confusion_matrix(all_labels, all_preds)
+    matrix_labels = np.arange(num_classes) if num_classes is not None else None
+    return confusion_matrix(all_labels, all_preds, labels=matrix_labels)
