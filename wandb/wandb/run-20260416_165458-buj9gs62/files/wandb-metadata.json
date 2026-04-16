@@ -1,0 +1,38 @@
+{
+  "os":  "macOS-26.3.1-arm64-arm-64bit",
+  "python":  "CPython 3.10.20",
+  "startedAt":  "2026-04-16T14:54:58.254857Z",
+  "program":  "/Users/user/Dropbox/My_Mac/Documents/Wageningen/Coursework/Period_5/Deep_learning/DL_landuse_classification_project/Deep-learning-land-use-classification/notebooks/3.02_multi_label_resnet50_with_imagenet_augment.ipynb",
+  "codePath":  "/Users/user/Dropbox/My_Mac/Documents/Wageningen/Coursework/Period_5/Deep_learning/DL_landuse_classification_project/Deep-learning-land-use-classification/notebooks/3.02_multi_label_resnet50_with_imagenet_augment.ipynb",
+  "codePathLocal":  "3.02_multi_label_resnet50_with_imagenet_augment.ipynb",
+  "git":  {
+    "remote":  "https://github.com/sstaheli52/Deep-learning-land-use-classification.git",
+    "commit":  "3aaf2fe617479e1d6cacbd116485d7c332543104"
+  },
+  "email":  "sstaheli52@gmail.com",
+  "root":  "/Users/user/Dropbox/My_Mac/Documents/Wageningen/Coursework/Period_5/Deep_learning/DL_landuse_classification_project/Deep-learning-land-use-classification/wandb",
+  "host":  "macbookpro.wurdmz.nl",
+  "executable":  "/Users/user/miniforge3/envs/DL_landuse/bin/python",
+  "cpu_count":  8,
+  "cpu_count_logical":  8,
+  "disk":  {
+    "/":  {
+      "total":  "494384795648",
+      "used":  "493840625664"
+    }
+  },
+  "memory":  {
+    "total":  "17179869184"
+  },
+  "apple":  {
+    "name":  "Apple M1",
+    "ecpuCores":  4,
+    "pcpuCores":  4,
+    "gpuCores":  8,
+    "memoryGb":  16,
+    "swapTotalBytes":  "8053063680",
+    "ramTotalBytes":  "17179869184",
+    "macModel":  "MacBookPro17,1"
+  },
+  "writerId":  "lncnzr7a1bo27ujfjg8kix8vierylya8"
+}
