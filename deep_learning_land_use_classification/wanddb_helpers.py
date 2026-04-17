@@ -70,7 +70,7 @@ def log_epoch(
     run: wandb.sdk.wandb_run.Run,
     epoch: int,
     train_loss: float,
-    test_loss: float,
+    val_loss: float,
     precision: np.ndarray,
     recall: np.ndarray,
     f1: np.ndarray,
@@ -82,7 +82,7 @@ def log_epoch(
     metrics = {
         "epoch":            epoch,
         "train_loss":       train_loss,
-        "test_loss":        test_loss,
+        "val_loss":        val_loss,
         "macro/precision":  p_macro,
         "macro/recall":     r_macro,
         "macro/f1":         f1_macro,
