@@ -30,7 +30,8 @@ dependencies = [
     "scikit-learn",
     "wandb",
     "nbformat",
-    "transformers"
+    "transformers",
+    "iterative-stratification"
 ]
 requires-python = "~=3.10.0"
 

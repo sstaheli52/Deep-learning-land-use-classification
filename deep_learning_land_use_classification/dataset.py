@@ -9,6 +9,13 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from pathlib import Path
 
+# Multilabel stratified splitting using iterative-stratification
+# Author: Trent J. Bradberry (2018)
+# License: BSD 3-Clause
+# Based on: Sechidis et al. (2011)
+from iterstrat.ml_stratifiers import MultilabelStratifiedShuffleSplit
+
+
 def download_data():
     # Download and extract the dataset if not already present
     if not config.IMAGES_DIR.exists() or not config.LABELS_FILE.exists():   
@@ -44,15 +51,23 @@ def get_multi_label_data():
     class_names = df.columns[1:-3]
     num_classes = len(class_names)
 
-    # Split dataset into test/train
-    train_df, test_df = train_test_split(
-        df,
-        test_size=0.2,
-        random_state=42,
-        shuffle=True
-    )
+    # Split dataset into test and train
+    X = df.index.values
+    y = df[class_names].values
+
+    msss = MultilabelStratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=42)
+    train_idx, test_idx = next(msss.split(X, y))
+    train_val_int = df.iloc[train_idx]
+    test_df = df.iloc[test_idx]
+
+    # split train into validation and train
+    msss_val = MultilabelStratifiedShuffleSplit(n_splits=1, test_size=0.2, random_state=43)
+    train_idx, val_idx = next(msss_val.split(train_val_int.index.values, train_val_int[class_names].values))
+    val_df = train_val_int.iloc[val_idx]
+    train_df = train_val_int.iloc[train_idx] 
+ 
     
-    return train_df, test_df, class_names, num_classes
+    return train_df, test_df, val_df, class_names, num_classes
 
 def get_single_label_data():
     # Download data if not already present
@@ -72,11 +87,19 @@ def get_single_label_data():
     df = pd.DataFrame(data)
     
     # Split dataset into train/test
-    train_df, test_df = train_test_split(
+    train_val_df, test_df = train_test_split(
         df,
         test_size=0.2,
         random_state=42,
-        shuffle=True
+        stratify=df["label"]
+    )
+
+    # split train into validation and train
+    train_df, val_df = train_test_split(
+        train_val_df,
+        test_size=0.2,
+        random_state=43,
+        stratify=train_val_df["label"]
     )
     
-    return train_df, test_df, class_names, num_classes
+    return train_df, test_df, val_df, class_names, num_classes
