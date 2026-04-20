@@ -117,6 +117,9 @@ def log_model_summary(
     log_freq: int = 100,
 ) -> None:
     run.watch(model, log=log, log_freq=log_freq)
+    
+def unwatch_model(run: wandb.sdk.wandb_run.Run, model: torch.nn.Module) -> None:
+    run.unwatch(model)
 
 # ── Internal helpers ──────────────────────────────────────────────────────────
 
