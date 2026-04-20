@@ -3,7 +3,6 @@ import torch
 import numpy as np
 from deep_learning_land_use_classification import config
 
-# ── Project name constants ────────────────────────────────────────────────────
 PROJECT_SINGLE = "DL_single-label-land-use-classification"
 PROJECT_MULTI  = "DL_multi-label-land-use-classification"
 ENTITY         = "sstaheli52-wageningen-university-and-research"
@@ -26,7 +25,12 @@ def init_run(
     early_stopping: bool = False,
     patience: int        = 2,
     min_delta: float     = 0.001,
+    run_name: str        = None,
     extra_config: dict   = None,
+    backbone_frozen: bool = False,
+    backbone_learning_rate: float = 1e-4,
+    dropout: float = None,
+    
 ) -> wandb.sdk.wandb_run.Run:
     assert task in ("single", "multi"), "task must be 'single' or 'multi'"
 
@@ -50,6 +54,9 @@ def init_run(
         "early_stopping":       early_stopping,
         "patience":             patience if early_stopping else None,
         "min_delta":            min_delta if early_stopping else None,
+        "backbone_frozen":       backbone_frozen,
+        "backbone_learning_rate": backbone_learning_rate, 
+        "dropout":              dropout,
     }
 
     if extra_config:
@@ -58,6 +65,7 @@ def init_run(
     run = wandb.init(
         entity=ENTITY,
         project=project,
+        name=run_name,
         dir=config.WANDB_DIR,
         config=base_config,
     )

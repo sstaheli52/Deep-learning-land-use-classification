@@ -31,7 +31,8 @@ dependencies = [
     "wandb",
     "nbformat",
     "transformers",
-    "iterative-stratification"
+    "iterative-stratification",
+    "seaborn"
 ]
 requires-python = "~=3.10.0"
 
