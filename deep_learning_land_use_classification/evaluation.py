@@ -91,11 +91,11 @@ def get_confusion_matrix_singlelabel(model, loader, device, num_classes=None):
     matrix_labels = np.arange(num_classes) if num_classes is not None else None
     return confusion_matrix(all_labels, all_preds, labels=matrix_labels)
 
-def plot_confusion_matrix(model, loader, class_names, device):
+def plot_confusion_matrix(model, loader, class_names, device, title):
     cm = get_confusion_matrix_singlelabel(model, loader, device, num_classes=len(class_names))
     plt.figure(figsize=(10, 8))
     sns.heatmap(cm, annot=True, fmt='d', xticklabels=class_names, yticklabels=class_names, cmap='Blues', cbar_kws={'label': 'Count'})
-    plt.title('Confusion Matrix')
+    plt.title(title)
     plt.xlabel('Predicted')
     plt.ylabel('Actual')
     plt.show()
