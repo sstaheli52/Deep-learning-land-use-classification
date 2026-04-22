@@ -1,4 +1,4 @@
-# Deep-learning-land-use-classification
+# ResNet vs ViT for Satellite Land-Use Classification
 
 <a target="_blank" href="https://cookiecutter-data-science.drivendata.org/">
     <img src="https://img.shields.io/badge/CCDS-Project%20template-328F97?logo=cookiecutter" />
