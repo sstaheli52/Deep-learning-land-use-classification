@@ -4,7 +4,6 @@ import deep_learning_land_use_classification.config as config
 import subprocess
 import shutil
 import zipfile
-import tempfile
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from pathlib import Path
@@ -19,17 +18,33 @@ from iterstrat.ml_stratifiers import MultilabelStratifiedShuffleSplit
 def download_data():
     # Download and extract the dataset if not already present
     if not config.IMAGES_DIR.exists() or not config.LABELS_FILE.exists():   
-        with tempfile.TemporaryDirectory() as tmp:
-            repo = Path(tmp) / "ucmdata"
-            # Clone repo
-            subprocess.run(["git", "clone", "--depth", "1", "https://git.wur.nl/lobry001/ucmdata.git", str(repo)], check=True)
-            # Copy labels file
-            shutil.copy2(repo / "LandUse_Multilabeled.txt", config.LABELS_FILE)
-            # Unzip images and move to target directory
-            with zipfile.ZipFile(repo / "UCMerced_LandUse.zip") as z:
-                z.extractall(tmp)
-            shutil.move(str(Path(tmp) / "UCMerced_LandUse" / "Images"), config.IMAGES_DIR)
-            shutil.rmtree(repo)
+        staging_dir = config.EXTERNAL_DATA_DIR / "ucmdata"
+        staging_dir.parent.mkdir(parents=True, exist_ok=True)
+
+        if staging_dir.exists():
+            shutil.rmtree(staging_dir)
+
+        # Clone repo into a stable project directory instead of a temp folder
+        subprocess.run([
+            "git",
+            "clone",
+            "--depth",
+            "1",
+            "https://git.wur.nl/lobry001/ucmdata.git",
+            str(staging_dir),
+        ], check=True)
+
+        # Ensure output directories exist
+        config.RAW_DATA_DIR.mkdir(parents=True, exist_ok=True)
+        config.IMAGES_DIR.parent.mkdir(parents=True, exist_ok=True)
+
+        # Copy labels file
+        shutil.copy2(staging_dir / "LandUse_Multilabeled.txt", config.LABELS_FILE)
+
+        # Unzip images and move to target directory
+        with zipfile.ZipFile(staging_dir / "UCMerced_LandUse.zip") as z:
+            z.extractall(staging_dir)
+        shutil.move(str(staging_dir / "UCMerced_LandUse" / "Images"), config.IMAGES_DIR)
     
 def get_multi_label_data():
     # Download data if not already present
