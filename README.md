@@ -63,7 +63,7 @@ and includes small utility modules for:
 3. To use Weights & Biases, activate your environment and follow the steps in the
     [W&B quickstart](https://docs.wandb.ai/models/quickstart#command-line), or run `wandb login`.
 4. Check out the notebooks. Notebooks will download data automatically.
-
+5. DINOv3 is a gated model accessed from [huggingface](https://huggingface.co/facebook/dinov3-vit7b16-pretrain-sat493m). To gain access to this model users need to create an account, request access to the model (will take a few minutes), and run 'hf auth login' in the terminal once access is granted.  
 
 Most exploratory work lives in `notebooks/`. The notebook sequence covers the single-label and
 multi-label data exploration, the ResNet50 and ViT experiments, and augmentation
