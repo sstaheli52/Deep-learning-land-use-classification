@@ -60,9 +60,9 @@ and includes small utility modules for:
 
 1. Create a new Python 3.10 environment.
 2. Install the package in editable mode with `pip install -e .`.
-3. If you want to reproduce the dataset download and local raw-data layout, run `make data`.
-4. To use Weights & Biases, activate your environment and follow the steps in the
+3. To use Weights & Biases, activate your environment and follow the steps in the
     [W&B quickstart](https://docs.wandb.ai/models/quickstart#command-line), or run `wandb login`.
+4. Check out the notebooks. Notebooks will download data automatically.
 
 
 Most exploratory work lives in `notebooks/`. The notebook sequence covers the single-label and
